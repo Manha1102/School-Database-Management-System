@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manha E-Solutions · School, petrol bunk and tax software</title>
+<meta name="description" content="Manha E-Solutions builds school management, petrol bunk and accounting software, and handles GST, ITR and payroll for businesses in Andhra Pradesh.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1F3A'/%3E%3Cpath d='M14 48V16l18 20 18-20v32' fill='none' stroke='%23D9A441' stroke-width='7' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1F3A;--navy2:#13335C;--teal:#0E8F8A;--tealL:#DDF1EF;--gold:#D9A441;--ink:#12212F;--mute:#55677A;--bg:#F3F6F7;--line:#D5DEE3;--h:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;--b:'Figtree','Segoe UI',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--b);color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:auto;padding:0 22px}
+h1,h2,h3{font-family:var(--h);line-height:1.08;letter-spacing:-.02em}
+h1{font-size:clamp(2.5rem,6.4vw,4.6rem);font-weight:800}
+h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:700}
+h3{font-size:1.25rem;font-weight:700;letter-spacing:-.01em}
+p.lead{font-size:1.15rem;color:var(--mute);max-width:56ch}
+/* nav */
+header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;border-bottom:3px solid var(--gold)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:var(--h);font-weight:800;font-size:1.2rem}
+.brand small{display:block;font-family:var(--b);font-weight:500;font-size:.72rem;opacity:.7;margin-top:-3px}
+nav a.tab{color:#fff;text-decoration:none;padding:9px 14px;border-radius:8px;font-weight:500;opacity:.85}
+nav a.tab:hover{opacity:1;background:#ffffff14}
+nav a.tab[aria-current=page]{opacity:1;background:#ffffff1f;box-shadow:inset 0 -3px 0 var(--gold)}
+nav a.signin{background:var(--gold);color:var(--navy);font-weight:600;opacity:1;margin-left:8px}
+nav a.signin:hover{background:#E6B75A}
+#menu{display:none;background:none;border:1px solid #ffffff55;color:#fff;border-radius:8px;padding:8px 12px;font:inherit}
+@media(max-width:820px){#menu{display:block}nav{display:none;position:absolute;left:0;right:0;top:68px;background:var(--navy);padding:10px 22px 18px;flex-direction:column;border-bottom:3px solid var(--gold)}nav.open{display:flex}nav a.tab{padding:13px 10px}nav a.signin{margin:8px 0 0;text-align:center}}
+/* buttons */
+.btn{display:inline-block;padding:13px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font:600 1rem var(--b)}
+.btn.gold{background:var(--gold);color:var(--navy)}.btn.gold:hover{background:#E6B75A}
+.btn.line{border-color:#ffffff66;color:#fff}.btn.line:hover{background:#ffffff14}
+.btn.teal{background:var(--teal);color:#fff}.btn.teal:hover{background:#0B7A76}
+/* pages */
+.page{display:none}.page.on{display:block}
+/* hero */
+.hero{background:radial-gradient(900px 420px at 85% 0,#13335C 0,transparent 70%),var(--navy);color:#fff;padding:70px 0 90px}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero p.lead{color:#C6D3E0;margin:22px 0 30px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+@media(max-width:900px){.hero .grid{grid-template-columns:1fr}.hero{padding:48px 0 60px}}
+/* ledger: the one memorable element */
+.ledger{background:#FBFBF7;color:var(--ink);border-radius:14px;box-shadow:0 30px 60px -20px #000a,0 0 0 1px #fff3;padding:20px 20px 16px;position:relative;transform:rotate(1.2deg)}
+.ledger h4{font-family:var(--h);font-size:1.05rem;display:flex;justify-content:space-between;margin-bottom:10px}
+.ledger h4 span{font:500 .78rem var(--b);color:var(--mute)}
+.led{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--navy)}
+.led>div{padding:8px 12px;min-height:178px}
+.led>div+div{border-left:1.5px solid var(--navy)}
+.led b{display:block;font-family:var(--h);color:var(--teal);margin-bottom:6px;border-bottom:1.5px solid var(--navy);padding-bottom:5px}
+.led .row{display:flex;justify-content:space-between;gap:8px;font-size:.92rem;padding:3px 0;border-bottom:1px dashed var(--line);opacity:0;transform:translateY(4px);transition:.35s}
+.led .row.in{opacity:1;transform:none}
+.led .tot{display:flex;justify-content:space-between;font-weight:700;border-top:1.5px solid var(--navy);padding:8px 12px;grid-column:span 1;font-family:var(--h)}
+.totrow{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--navy);border-top:0}
+.totrow .tot+.tot{border-left:1.5px solid var(--navy)}
+.stamp{position:absolute;right:18px;bottom:62px;border:3px solid var(--teal);color:var(--teal);font:800 1.15rem var(--h);padding:4px 14px;border-radius:6px;transform:rotate(-9deg) scale(1.6);opacity:0;transition:.4s}
+.stamp.in{opacity:.92;transform:rotate(-9deg) scale(1)}
+.note{font-size:.76rem;color:var(--mute);margin-top:9px}
+/* sections */
+section.s{padding:84px 0}
+.sh{margin-bottom:38px}.sh p{color:var(--mute);margin-top:12px;max-width:58ch}
+.svc{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:6px 22px 6px 22px;padding:26px}
+.card p{color:var(--mute);margin-top:10px;font-size:.98rem}
+.card ul{margin:14px 0 0 18px;color:var(--mute);font-size:.95rem}
+.card.big{grid-column:span 4;background:var(--navy);color:#fff;border-color:var(--navy)}
+.card.big p,.card.big ul{color:#C6D3E0}
+.card.big h3{font-size:1.7rem}
+.card.m{grid-column:span 2}.card.w{grid-column:span 3}
+.card .ic{width:42px;height:42px;border-radius:50%;background:var(--tealL);display:grid;place-items:center;margin-bottom:14px;color:var(--teal)}
+.card.big .ic{background:#ffffff1a;color:var(--gold)}
+@media(max-width:860px){.card.big,.card.m,.card.w{grid-column:span 6}}
+.who{background:#fff;border-block:1px solid var(--line)}
+.who .row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.who ul{list-style:none;padding:0;display:grid;gap:14px}
+.who li{padding-left:34px;position:relative}
+.who li::before{content:"";position:absolute;left:0;top:6px;width:20px;height:11px;border-left:3px solid var(--teal);border-bottom:3px solid var(--teal);transform:rotate(-45deg)}
+.who li b{display:block}
+@media(max-width:820px){.who .row{grid-template-columns:1fr;gap:26px}}
+.band{background:var(--teal);color:#fff;padding:56px 0}
+.band .wrap{display:flex;gap:24px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.band h2{max-width:20ch}
+/* about */
+.pagehead{background:var(--navy);color:#fff;padding:60px 0 54px}
+.pagehead p{color:#C6D3E0;margin-top:14px;max-width:58ch}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:48px}
+.two p+p{margin-top:16px}
+.facts{background:#fff;border:1px solid var(--line);border-radius:6px 22px 6px 22px;padding:26px}
+.facts dt{font-weight:600;margin-top:14px}.facts dt:first-child{margin-top:0}.facts dd{color:var(--mute)}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+/* forms */
+.panel{background:#fff;border:1px solid var(--line);border-radius:6px 22px 6px 22px;padding:30px;max-width:460px;margin:-34px auto 0;position:relative;box-shadow:0 24px 50px -28px #0B1F3A66}
+label{display:block;font-weight:600;font-size:.92rem;margin:16px 0 6px}
+input{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:9px;font:inherit;background:#fff}
+input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--tealL)}
+#msg{margin-top:16px;padding:11px 14px;border-radius:9px;font-size:.93rem;display:none}
+#msg.err{display:block;background:#FDECEA;color:#8A1F11}#msg.ok{display:block;background:var(--tealL);color:#075653}
+.alt{margin-top:18px;font-size:.92rem;color:var(--mute)}
+.chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+footer{background:var(--navy);color:#B6C6D6;padding:34px 0;font-size:.92rem;border-top:3px solid var(--gold)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#home"><svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#13335C"/><path d="M14 48V16l18 20 18-20v32" fill="none" stroke="#D9A441" stroke-width="7" stroke-linejoin="round"/></svg><span>Manha E-Solutions<small>Software and tax consultancy</small></span></a>
+  <button id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" aria-label="Main">
+    <a class="tab" href="#home">Home</a><a class="tab" href="#services">Services</a><a class="tab" href="#about">About</a><a class="tab" href="#contact">Contact</a><a class="tab signin" href="#login">Sign in</a>
+  </nav>
+</div></header>
+
+<main>
+<!-- HOME -->
+<div class="page" id="p-home">
+  <section class="hero"><div class="wrap grid">
+    <div>
+      <h1>Every rupee in. Every rupee out. Balanced.</h1>
+      <p class="lead">Software that runs the school office, the petrol bunk and the books, built and supported from Jaggayyapet.</p>
+      <div class="cta"><a class="btn gold" href="#login">Sign in to your software</a><a class="btn line" href="#services">See what we build</a></div>
+    </div>
+    <div class="ledger" aria-label="Sample receipts and payments statement that balances">
+      <h4>Receipts &amp; Payments <span>Sample month</span></h4>
+      <div class="led"><div id="lr"><b>Receipts</b></div><div id="lp"><b>Payments</b></div></div>
+      <div class="totrow"><div class="tot"><span>Total</span><span id="tr">₹0</span></div><div class="tot"><span>Total</span><span id="tp">₹0</span></div></div>
+      <div class="stamp" id="stamp">Balanced</div>
+      <p class="note">Sample figures. Your real statement comes from your own records.</p>
+    </div>
+  </div></section>
+
+  <section class="s"><div class="wrap">
+    <div class="sh"><h2>Built for the offices we know</h2><p>Schools, petrol stations and small businesses in our area run on the same few jobs: collect, record, report. We build the software around those jobs.</p></div>
+    <div class="svc">
+      <div class="card big"><div class="ic"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5zM7 12v5c0 1 2.5 3 5 3s5-2 5-3v-5"/></svg></div><h3>School management</h3><p>Admissions, fees, attendance, exams and report cards, plus full accounts with balance sheet, store and role-based logins for the principal, accountant and clerk.</p></div>
+      <div class="card m"><div class="ic"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 21V5a2 2 0 012-2h6a2 2 0 012 2v16M5 21h10M15 9h2a2 2 0 012 2v5a1.5 1.5 0 003 0V8l-3-3"/></svg></div><h3>Petrol bunk</h3><p>Daily sales, stock, credit customers and shift reports in one place.</p></div>
+    </div>
+    <p style="margin-top:22px"><a href="#services" style="color:var(--teal);font-weight:600">All services</a></p>
+  </div></section>
+
+  <section class="band"><div class="wrap"><h2>Want to see it with your own data?</h2><a class="btn gold" href="#contact">Request a demo</a></div></section>
+</div>
+
+<!-- SERVICES -->
+<div class="page" id="p-services">
+  <div class="pagehead"><div class="wrap"><h1 style="font-size:clamp(2.2rem,5vw,3.6rem)">Services</h1><p>Software for the day-to-day, and tax and accounts support behind it.</p></div></div>
+  <section class="s"><div class="wrap"><div class="svc">
+    <div class="card big"><h3>School management software</h3><p>One system for the whole school office.</p><ul><li>Student records, fees and receipts</li><li>Student and staff attendance</li><li>Exams, marks and report cards</li><li>Accounts: expenses, drawings, receipts and payments, balance sheet</li><li>Store and inventory, with logins by role</li></ul></div>
+    <div class="card m"><h3>Petrol bunk management</h3><p>Sales, stock, credit customers and shift-wise reports.</p></div>
+    <div class="card w"><h3>GST, ITR and accounting</h3><p>Registrations, monthly returns, income tax filing and bookkeeping for individuals and businesses.</p></div>
+    <div class="card w"><h3>Payroll and online applications</h3><p>Salary processing, and help with government and online applications.</p></div>
+    <div class="card w"><h3>Custom software</h3><p>A web app made for how your business already works, with training and support after launch.</p></div>
+    <div class="card w"><h3>Setup and support</h3><p>We move your existing records in, train your staff, and stay reachable when something needs fixing.</p></div>
+  </div></div></section>
+  <section class="band"><div class="wrap"><h2>Tell us what your office needs</h2><a class="btn gold" href="#contact">Contact us</a></div></section>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="p-about">
+  <div class="pagehead"><div class="wrap"><h1 style="font-size:clamp(2.2rem,5vw,3.6rem)">About Manha E-Solutions</h1><p>A tax consultancy that also builds software, based in Jaggayyapet, NTR District, Andhra Pradesh.</p></div></div>
+  <section class="s"><div class="wrap two">
+    <div><p>We started as a tax and accounts practice, handling GST, income tax and payroll for local clients. Along the way we kept building the tools our own work needed, and then built the same for schools and petrol stations around us.</p><p>That is why our software gets the accounts right: it was designed by people who file returns and close books every month.</p><p>We work with clients in person, in Telugu or English, and keep supporting them after the software goes live.</p></div>
+    <dl class="facts"><dt>Based in</dt><dd>Jaggayyapet, NTR District, Andhra Pradesh</dd><dt>We serve</dt><dd>Schools, petrol stations and local businesses</dd><dt>We handle</dt><dd>GST, ITR, accounting, payroll and online applications</dd><dt>We build</dt><dd>School and petrol bunk software and custom web apps</dd></dl>
+  </div></section>
+  <section class="who"><div class="wrap row" style="padding-block:70px">
+    <h2>What you can expect</h2>
+    <ul><li><b>Accounts that tie out</b>Receipts and payments balance, and the balance sheet agrees.</li><li><b>Logins that fit your staff</b>Principal, accountant and clerk each see only what their job needs.</li><li><b>Help from a person</b>Call or message us, and we fix it.</li></ul>
+  </div></section>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="p-contact">
+  <div class="pagehead"><div class="wrap"><h1 style="font-size:clamp(2.2rem,5vw,3.6rem)">Contact</h1><p>Ask for a demo, a quote, or help with your tax filing.</p></div></div>
+  <section class="s"><div class="wrap two">
+    <div><h2 style="font-size:1.9rem">Visit or call</h2><p style="margin-top:12px;color:var(--mute)">Manha E-Solutions<br>Jaggayyapet, NTR District<br>Andhra Pradesh</p><div class="chips" id="chips"></div></div>
+    <form class="facts" id="cf" novalidate><label for="cn" style="margin-top:0">Your name</label><input id="cn" autocomplete="name"><label for="cm">What do you need?</label><input id="cm" placeholder="School software demo, GST filing, and so on"><button class="btn teal" style="margin-top:20px;width:100%" type="submit">Send on WhatsApp</button><div id="cmsg" class="alt"></div></form>
+  </div></section>
+</div>
+
+<!-- LOGIN -->
+<div class="page" id="p-login">
+  <div class="pagehead" style="padding-bottom:70px"><div class="wrap"><h1 style="font-size:clamp(2.2rem,5vw,3.6rem)">Sign in</h1><p>Use the username and password given by your school or office administrator.</p></div></div>
+  <section style="padding:0 0 80px"><div class="wrap"><form class="panel" id="lf" novalidate>
+    <label for="lu" style="margin-top:0">Username</label><input id="lu" autocomplete="username" required>
+    <label for="lpw">Password</label><input id="lpw" type="password" autocomplete="current-password" required>
+    <button class="btn teal" style="margin-top:22px;width:100%" type="submit" id="lb">Sign in</button>
+    <div id="msg" role="alert"></div>
+    <p class="alt">Forgot your password? Ask your administrator to reset it.</p>
+  </form></div></section>
+</div>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Manha E-Solutions, Jaggayyapet</span><span>Software · GST · ITR · Payroll</span></div></footer>
+
+<script src="config.js"></script>
+<script>
+(function(){
+var C=window.MANHA||{}, $=function(i){return document.getElementById(i)};
+$('yr').textContent=new Date().getFullYear();
+/* tabs */
+var pages=['home','services','about','contact','login'];
+function route(){var h=(location.hash||'#home').slice(1);if(pages.indexOf(h)<0)h='home';
+  pages.forEach(function(p){$('p-'+p).classList.toggle('on',p===h)});
+  document.querySelectorAll('nav a').forEach(function(a){a.getAttribute('href')==='#'+h?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')});
+  $('nav').classList.remove('open');$('menu').setAttribute('aria-expanded','false');window.scrollTo(0,0);document.title=(h==='home'?'':h[0].toUpperCase()+h.slice(1)+' · ')+'Manha E-Solutions';
+  if(h==='home')ledger();}
+window.addEventListener('hashchange',route);
+$('menu').onclick=function(){var o=$('nav').classList.toggle('open');this.setAttribute('aria-expanded',o)};
+/* ledger animation (plays once; shows the final state if motion is reduced) */
+var played=false;
+function ledger(){if(played)return;played=true;
+  var R=[['Tuition fees',182000],['Transport fees',46500],['Admission fees',31000],['Exam fees',12500]],P=[['Salaries',140000],['Electricity',18200],['Stationery',9800],['Drawings',24000]],
+  tr=0,tp=0,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var f=function(n){return '₹'+n.toLocaleString('en-IN')};
+  var add=function(box,r){var d=document.createElement('div');d.className='row';d.innerHTML='<span>'+r[0]+'</span><span>'+f(r[1])+'</span>';box.appendChild(d);requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('in')})})};
+  var steps=[];R.forEach(function(r){steps.push(function(){add($('lr'),r);tr+=r[1];$('tr').textContent=f(tr)})});
+  P.forEach(function(r){steps.push(function(){add($('lp'),r);tp+=r[1];$('tp').textContent=f(tp)})});
+  /* closing cash balance is what makes both sides tally */
+  steps.push(function(){var c=tr-tp;add($('lp'),['Closing cash and bank',c]);tp+=c;$('tp').textContent=f(tp)});
+  steps.push(function(){$('stamp').classList.add('in')});
+  steps.forEach(function(s,i){rm?s():setTimeout(s,500+i*520)});}
+/* contact */
+var chips=$('chips');
+function chip(t,h,c){var a=document.createElement('a');a.className='btn '+c;a.href=h;a.textContent=t;chips.appendChild(a)}
+if(C.phone)chip('Call '+C.phone,'tel:'+C.phone.replace(/[^+\d]/g,''),'teal');
+if(C.whatsapp)chip('WhatsApp','https://wa.me/'+C.whatsapp,'gold');
+if(C.email)chip('Email us','mailto:'+C.email,'teal');
+$('cf').onsubmit=function(e){e.preventDefault();var n=$('cn').value.trim(),m=$('cm').value.trim(),o=$('cmsg');
+  if(!n||!m){o.textContent='Enter your name and what you need.';return}
+  if(!C.whatsapp){o.textContent='Messaging is not set up yet. Please call us instead.';return}
+  open('https://wa.me/'+C.whatsapp+'?text='+encodeURIComponent('Hello, I am '+n+'. '+m),'_blank');o.textContent='Opening WhatsApp.'};
+/* login */
+$('lf').onsubmit=function(e){e.preventDefault();var u=$('lu').value.trim(),p=$('lpw').value,m=$('msg'),b=$('lb');
+  m.className='';m.textContent='';
+  if(!u||!p){m.className='err';m.textContent='Enter your username and password.';return}
+  if(!C.APPS_SCRIPT_URL){m.className='err';m.textContent='Sign-in is not connected yet. Please contact Manha E-Solutions.';return}
+  b.disabled=true;b.textContent='Signing in';
+  fetch(C.APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({fn:C.LOGIN_FN||'login',args:[u,p]})})
+   .then(function(r){return r.json()})
+   .then(function(d){var r=d&&d.result||d;if(r&&r.success&&r.token){sessionStorage.setItem('manha_session',JSON.stringify(r));location.href='/app/'}
+     else{m.className='err';m.textContent=(r&&r.error)||'Username or password is wrong. Check them and try again.'}})
+   .catch(function(){m.className='err';m.textContent='Could not reach the server. Check your internet and try again.'})
+   .finally(function(){b.disabled=false;b.textContent='Sign in'})};
+route();
+})();
+</script>
+</body>
+</html>
